@@ -46,13 +46,31 @@ export default function InfoUser() {
           <h1>Modification info user</h1>
           <form className="editUserNameContent" onSubmit={submitHandler}>
             <div className="editUserNameInputs">
+            <label> User name : </label>
               <input
                 type="text"
                 placeholder={'Username'}
                 onChange={(e) => setNewUsername(e.target.value)}
                 required
               />
+              <div className="editFirstName">
+              <label> First name : </label>
+              <input
+                type="text"
+                placeholder={firstName}
+                disabled
+              />
             </div>
+            <div className="editLastName">
+            <label> Last name : </label>
+              <input
+                type="text"
+                placeholder={lastName}
+                disabled
+              />
+            </div>
+            </div>
+            <br/>
             <div className="editNameButtons">
               <button className="save-button" type="submit">
                 Enregistrer
