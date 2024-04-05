@@ -33,8 +33,7 @@ export default function InfoUser() {
       {!editButton ? (
         <div className="header">
           <h1>
-            Welcome back
-            <br />
+            Modification info user            <br />
             {firstName + ' ' + lastName} !
           </h1>
           <button onClick={editUserNameButton} className="edit-button">
