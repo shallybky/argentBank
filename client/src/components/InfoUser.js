@@ -33,7 +33,8 @@ export default function InfoUser() {
       {!editButton ? (
         <div className="header">
           <h1>
-            Modification info user            <br />
+            Welcome back
+            <br />
             {firstName + ' ' + lastName} !
           </h1>
           <button onClick={editUserNameButton} className="edit-button">
@@ -42,7 +43,7 @@ export default function InfoUser() {
         </div>
       ) : (
         <div className="header">
-          <h1>Welcome back</h1>
+          <h1>Modification info user</h1>
           <form className="editUserNameContent" onSubmit={submitHandler}>
             <div className="editUserNameInputs">
               <input
