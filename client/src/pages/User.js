@@ -1,10 +1,23 @@
 import '../styles/main.css';
+import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer.js';
 import Navigation from '../components/Navigation.js';
 import Accounts from '../components/Accounts.js';
 import InfoUser from '../components/InfoUser.js';
 
 function User() {
+
+  let navigate = useNavigate()
+const { token } = useSelector((state) => state.userLogin)
+
+useEffect(() => {
+  if (!token) {
+      navigate('/')
+    }
+}, [token, navigate])
+
   return (
     <div>
       <main className="main bg-dark bg-padding">
