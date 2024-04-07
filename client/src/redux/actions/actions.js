@@ -1,16 +1,15 @@
-// Import des types d'action pour les reducers associés
 import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGOUT,
-} from '../reducers/loginReducers' // Types d'action pour l'authentification
+} from '../reducers/loginReducers'
 
 import {
   USER_PROFILE_SUCCESS,
   USER_PROFILE_FAIL,
   USER_PROFILE_RESET,
   USER_PROFILE_UPDATE,
-} from '../reducers/userReducers' // Types d'action pour les profils utilisateur
+} from '../reducers/userReducers' 
 
 import axios from 'axios' // Import de Axios pour effectuer des requêtes HTTP
 

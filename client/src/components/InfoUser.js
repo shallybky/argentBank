@@ -3,31 +3,29 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateProfile } from '../redux/actions/actions'
 
 export default function InfoUser() {
-  const dispatch = useDispatch()
-
-  const { userName } = useSelector((state) => state.userProfile)
-  const { firstName } = useSelector((state) => state.userProfile)
-  const { lastName } = useSelector((state) => state.userProfile)
-  const { token } = useSelector((state) => state.userLogin)
-  const { success } = useSelector((state) => state.userLogin)
-
-  const [newUserName, setNewUsername] = useState()
-
-  const [editButton, setEditButton] = useState('')
-
-  const editUserNameButton = (e) => {
-    e.preventDefault()
-    setEditButton((current) => !current)
-  }
-
-  const submitHandler = (e) => {
-    e.preventDefault()
-    dispatch(updateProfile(token, firstName, lastName, newUserName))
-    if ({ success }) {
-      setEditButton((current) => !current)
-    }
-  }
-
+   // Extraction des données du profil utilisateur et du token d'authentification depuis l'état global Redux
+   const { userName, firstName, lastName } = useSelector((state) => state.userProfile);
+   const { token, success } = useSelector((state) => state.userLogin);
+ 
+   // Initialisation de l'état local pour le nouveau nom d'utilisateur et le bouton d'édition
+   const [newUserName, setNewUsername] = useState('');
+   const [editButton, setEditButton] = useState('');
+ 
+   // Fonction pour activer/désactiver le mode édition du nom d'utilisateur
+   const editUserNameButton = (e) => {
+     e.preventDefault();
+     setEditButton((current) => !current);
+   };
+ 
+   // Fonction pour soumettre la mise à jour du nom d'utilisateur
+   const submitHandler = (e) => {
+     e.preventDefault();
+     dispatch(updateProfile(token, firstName, lastName, newUserName)); // Dispatch de l'action updateProfile avec les données du formulaire
+     if (success) { // Si la mise à jour du profil réussit
+       setEditButton((current) => !current); // Désactiver le mode édition du nom d'utilisateur
+     }
+   };
+ 
   return (
     <div>
       {!editButton ? (

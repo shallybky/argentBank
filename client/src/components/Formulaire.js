@@ -5,19 +5,19 @@ import { login } from '../redux/actions/actions';
 
 function Formulaire() {
 
-  let navigate = useNavigate();
-  const dispatch = useDispatch();
+  let navigate = useNavigate();  // Initialisation de la fonction de navigation
+  const dispatch = useDispatch();// Initialisation de la fonction dispatch pour les actions Redux
 
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');// Initialisation de l'état local pour le mot de passe
+  const [email, setEmail] = useState(''); // Initialisation de l'état local pour l'email
 
 
-  const { error } = useSelector((state) => state.userLogin)
-  const { token } = useSelector((state) => state.userLogin)
+  const { error } = useSelector((state) => state.userLogin)// Extraction de l'erreur de connexion
+  const { token } = useSelector((state) => state.userLogin)// Extraction du token d'authentification
   
   const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch(login(email, password))
+    e.preventDefault() // Empêche le rechargement de la page lors de la soumission du formulaire
+    dispatch(login(email, password)) // Dispatch de l'action de connexion avec l'email et le mot de passe
   }
 
   useEffect(() => {

@@ -8,15 +8,15 @@ import Accounts from '../components/Accounts.js';
 import InfoUser from '../components/InfoUser.js';
 
 function User() {
+  let navigate = useNavigate(); // Initialisation de la fonction de navigation
+  const { token } = useSelector((state) => state.userLogin); // Extraction du token d'authentification depuis l'état global Redux
 
-  let navigate = useNavigate()
-const { token } = useSelector((state) => state.userLogin)
-
-useEffect(() => {
-  if (!token) {
-      navigate('/')
+  // Effet déclenché lorsque le token change
+  useEffect(() => {
+    if (!token) { // Si aucun token n'est présent (utilisateur non connecté)
+      navigate('/'); // Redirection vers la page d'accueil
     }
-}, [token, navigate])
+  }, [token, navigate]); // Déclenchement de l'effet lorsque le token ou la fonction de navigation change
 
   return (
     <div>
