@@ -25,8 +25,8 @@ export default function InfoUser() {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(updateProfile(token, firstName, lastName, newUserName))
-    if ({ success }) { // Si la mise à jour du profil réussit
-      setEditButton((current) => !current) // Désactiver le mode édition du nom d'utilisateur
+    if ({ success }) {
+      setEditButton((current) => !current)
     }
   }
  
@@ -49,9 +49,10 @@ export default function InfoUser() {
           <form className="editUserNameContent" onSubmit={submitHandler}>
             <div className="editUserNameInputs">
             <label> User name : </label>
-              <input
+            <input
                 type="text"
                 placeholder={'Username'}
+                value={newUserName}
                 onChange={(e) => setNewUsername(e.target.value)}
                 required
               />
